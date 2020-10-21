@@ -1,0 +1,15 @@
+syntax = "proto3";
+option java_multiple_files = true;
+package com.example.grpc.server.grpcserver;
+
+message ResourceRequest {
+    string resourceUrl = 1;
+}
+message ResourceResponse {
+    string resourceUrl = 1;
+    int64 time = 2;
+    int32 responseCode = 3;
+}
+service ResourceService {
+    rpc ping(ResourceRequest) returns (ResourceResponse);
+}
